@@ -1,0 +1,36 @@
+{
+  "persons": [
+    {
+      "id": "1675421663941",
+      "name": "John",
+      "surname": "Dewey",
+      "number": "111222333444",
+      "groupId": "2"
+    },
+    {
+      "id": "1675421777589",
+      "name": "Ahmet",
+      "surname": "yıldrım",
+      "number": "0008889996666",
+      "groupId": "1"
+    }
+  ],
+  "groups": [
+    {
+      "id": "0",
+      "name": "Grup Seçiniz"
+    },
+    {
+      "id": "1",
+      "name": "Ailem"
+    },
+    {
+      "id": "2",
+      "name": "Arkadaşlarım"
+    },
+    {
+      "id": "3",
+      "name": "Diğer"
+    }
+  ]
+}

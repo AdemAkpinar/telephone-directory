@@ -1,0 +1,16 @@
+Telephone Directory App
+
+Dependencies:
+    - Json server
+    - axios
+    - redux (state management) (redux,react-redux)
+    - react router dom
+
+İş Sırası:
+    - Veri yapısı ve ilişkilerin kurulması (json-server yapılandırılması) +
+    - global bir axios dosyası oluşturma +
+    - redux yapısı oluşturma (temel seviyede, daha sonradan geliştirilebilir) +
+        a. store'a taşınacak state'lere karar vermek? (persons ve group)
+
+    - Router yapısını kur. +
+    - UI kütüphanesi olarak bootstrap kullanılacak +
