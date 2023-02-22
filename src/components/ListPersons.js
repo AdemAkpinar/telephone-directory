@@ -10,6 +10,14 @@ const ListPersons = () => {
   const { personsState, groupsState } = useSelector((state) => state);
   const dispatch = useDispatch();
   const [searchText, setSearchText] = useState("");
+  const [filteredPersons, setFilteredPersons] = useState(personsState.persons);
+
+  useEffect(() => {
+    const temp = personsState.persons.filter((item) =>
+      item.name.toLowerCase().includes(searchText.toLowerCase())===true)
+      setFilteredPersons(temp)
+    ;
+  }, [searchText]);
 
   const deletePerson = (id) => {
     if (window.confirm("Silmek istediğinize emin misiniz?") === true) {
@@ -55,7 +63,7 @@ const ListPersons = () => {
           </tr>
         </thead>
         <tbody>
-          {personsState.persons.map((person, index) => {
+          {filteredPersons.map((person, index) => {
             const myGroup = groupsState.groups.find(
               (item) => item.id === person.groupId
             );
