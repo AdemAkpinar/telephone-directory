@@ -60,6 +60,19 @@ const personsReducer = (state = initialState, action) => {
         ...state,
         persons: [...state.persons, action.payload],
       };
+    case actionTypes.personActions.EDIT_PERSON:
+      var temp = [];
+      for (var i = 0; i < state.persons.length; i++) {
+        if (state.persons[i].id !== action.payload.id) {
+          temp.push(state.persons[i]);
+        } else {
+          temp.push(action.payload);
+        }
+        return {
+          ...state,
+          persons: temp,
+        };
+      }
     default:
       return state;
   }
