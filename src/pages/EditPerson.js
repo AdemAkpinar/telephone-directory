@@ -4,38 +4,46 @@ import Header from "../components/Header";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import api from "../api/api"
+import api from "../api/api";
 import urls from "../api/urls";
 import actionTypes from "../redux/actions/actionTypes";
 
 const EditPerson = () => {
   const params = useParams();
-  console.log(params);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { personsState, groupsState } = useSelector((state) => state);
   const myPerson = personsState.persons.find(
     (item) => item.id === params.personsId
   );
   const [form, setForm] = useState(myPerson);
-  const handleSubmit=(event)=>{
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const navigate=useNavigate()
-  if (form.name===""||form.surname===""||form.groupsId==="")
-  alert("Zorunlu alanları giriniz")
-  return;    
-  }
-  api.put(`${urls.persons}/${params.personId}`,form)
-  .then(res=>{dispatch({type:actionTypes.personActions.EDIT_PERSON,payload:form})
-  navigate("/")})
-  .catch(err=>{})
-  
+    if (form.name === "" || form.surname === "" || form.groupsId === "") {
+      alert("Zorunlu alanları giriniz");
+      return;
+    }
+    api
+      .put(`${urls.persons}/${params.personId}`, form)
+      .then((res) => {
+        dispatch({
+          type: actionTypes.personActions.EDIT_PERSON,
+          payload: form,
+        });
+        navigate("/");
+      })
+      .catch((err) => {});
   };
-  
+
   return (
     <div>
       <Header />
       <div className="container my-5">
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
+            <label htmlFor="name" className="form-label">
+              Kişi Adı
+            </label>
             <input
               type="text"
               className="form-control"
@@ -48,6 +56,9 @@ const EditPerson = () => {
             />
           </div>
           <div className="mb-3">
+            <label htmlFor="surname" className="form-label">
+              Surname
+            </label>
             <input
               type="text"
               className="form-control"
@@ -61,6 +72,9 @@ const EditPerson = () => {
           </div>
 
           <div className="mb-3">
+            <label htmlFor="Telefon" className="form-label">
+              Telefon
+            </label>
             <input
               type="number"
               className="form-control"
@@ -89,7 +103,7 @@ const EditPerson = () => {
 
           <div className="d-flex justify-content-center my-5">
             <button className="btn btn-primary w-50" type="submit">
-              Kaydet
+              Güncelle
             </button>
           </div>
         </form>
