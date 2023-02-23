@@ -55,7 +55,7 @@ const EditPerson = () => {
               type="text"
               className="form-control"
               id="name"
-              placeholder="Yalnızız"
+              placeholder=""
               value={form.name}
               onChange={(event) =>
                 setForm({ ...form, name: event.target.value })
@@ -70,7 +70,7 @@ const EditPerson = () => {
               type="text"
               className="form-control"
               id="surname"
-              placeholder="Peyami Safa"
+              placeholder=""
               value={form.surname}
               onChange={(event) =>
                 setForm({ ...form, surname: event.target.value })
@@ -86,7 +86,7 @@ const EditPerson = () => {
               type="number"
               className="form-control"
               id="number"
-              placeholder="69.70"
+              placeholder=""
               value={form.number}
               onChange={(event) =>
                 setForm({ ...form, number: Number(event.target.value) })
