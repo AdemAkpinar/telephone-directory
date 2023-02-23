@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import actionTypes from "./redux/actions/actionTypes";
 import PersonDetail from "./pages/PersonDetail";
 import AddPerson from "./pages/AddPerson";
+import EditPerson from "./pages/EditPerson";
 
 function App() {
   const dispatch = useDispatch();
@@ -58,9 +59,11 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="person-detail/:personId" element={<PersonDetail />} />
         <Route path="add-person" element={<AddPerson />} />
+        <Route path="edit-person/:personId" element={<EditPerson />} />
       </Routes>
     </BrowserRouter>
   );
 }
 
 export default App;
+
